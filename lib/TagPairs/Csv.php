@@ -4,11 +4,11 @@ namespace Lcml\TagPairs;
 
 class Csv extends \bors_lcml_tag_pair
 {
-	function lp_csv($txt, $params)
+	function html($text, $params)
 	{
 		require_once('engines/lcml/bcsTable.php');
 		require_once('inc/csv.php');
-		$lcml_parse_cells = bors_strlen($txt) < 8192;
+		$lcml_parse_cells = bors_strlen($text) < 8192;
 
 		$tab = new bcsTable();
 
@@ -17,7 +17,7 @@ class Csv extends \bors_lcml_tag_pair
 
 		$delim = defval($params, 'delim', ';');
 
-	    foreach(explode("\n", $txt) as $s)
+	    foreach(explode("\n", $text) as $s)
     	{
 	            if($s = trim($s))
     	        {
@@ -66,5 +66,10 @@ class Csv extends \bors_lcml_tag_pair
 	    }
 
 		return remove_format($tab->get_html());
+	}
+
+	static function __dev()
+	{
+		echo \B2\Lcml::parse("[csv]a;b;x\n1;2;3[/csv]");
 	}
 }

@@ -1,0 +1,31 @@
+{
+	"name": "balancer/b2-lcml",
+	"description": "LCML markup engine",
+    "type": "library",
+	"homepage": "http://bors.balancer.ru/",
+    "license": "GPL-3.0",
+	"authors": [
+		{
+			"name": "Roman =Balancer= Karshiev",
+			"email": "balancer@balancer.ru"
+		}
+	],
+
+	"support": {
+		"issues": "https://bitbucket.org/Balancer/bors-core/issues",
+		"forum": "http://www.balancer.ru/support/viewforum.php?id=60",
+		"source": "https://github.com/Balancer/b2-lcml"
+	},
+
+    "require": {
+        "balancer/b2-core": "@dev",
+        "balancer/bors-core": "@dev"
+    },
+
+    "autoload": {
+		"psr-4": {
+			"B2\\": ["lib/B2/"]
+			"Lcml\\TagPairs\\": ["lib/Lcml/Tags/Pairs/"]
+		}
+    }
+}

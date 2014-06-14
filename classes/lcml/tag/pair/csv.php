@@ -1,8 +1,6 @@
 <?php
 
-namespace Lcml\TagPairs;
-
-class Csv extends \bors_lcml_tag_pair
+class lcml_pair_tag_csv extends bors_lcml_tag_pair
 {
 	function html($text, $params)
 	{
@@ -70,6 +68,6 @@ class Csv extends \bors_lcml_tag_pair
 
 	static function __dev()
 	{
-		echo \B2\Lcml::parse("[csv]a;b;x\n1;2;3[/csv]");
+		echo bors_lcml::parse("[csv]a;b;x\n1;2;3[/csv]");
 	}
 }

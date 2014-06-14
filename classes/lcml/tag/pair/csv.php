@@ -8,7 +8,18 @@ class lcml_tag_pair_csv extends bors_lcml_tag_pair
 		require_once('inc/csv.php');
 		$lcml_parse_cells = bors_strlen($text) < 8192;
 
-		$tab = new bcsTable();
+		$bcs_args = array();
+
+		if($object = @$params['self'])
+		{
+			if($layout = $object->get('layoutr'))
+			{
+				$bcs_args['table_class'] = $layout->table_class();
+			}
+		}
+
+		$tab = new bcsTable($bcs_args);
+
 
 		if(!empty($params['width']))
 			$tab->table_width($params['width']);

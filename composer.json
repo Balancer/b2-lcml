@@ -25,7 +25,7 @@
     "autoload": {
 		"psr-4": {
 			"B2\\": ["lib/B2/"],
-			"Lcml\\TagPairs\\": ["lib/Lcml/Tags/Pairs/"]
+			"Lcml\\TagPairs\\": ["lib/TagPairs/"]
 		}
     }
 }

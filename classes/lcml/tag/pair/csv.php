@@ -10,16 +10,11 @@ class lcml_tag_pair_csv extends bors_lcml_tag_pair
 
 		$bcs_args = array();
 
-		if($object = @$params['self'])
-		{
-			if($layout = $object->get('layoutr'))
-			{
-				$bcs_args['table_class'] = $layout->table_class();
-			}
-		}
+		if($container = @$params['container'])
+			if($layout = $container->get('layout'))
+				$bcs_args['layout'] = $layout;
 
 		$tab = new bcsTable($bcs_args);
-
 
 		if(!empty($params['width']))
 			$tab->table_width($params['width']);
@@ -70,6 +65,7 @@ class lcml_tag_pair_csv extends bors_lcml_tag_pair
 							$d = str_replace("[br]", "<br/>", $d);
 	                    $tab->append($d);
     	            }
+
         	        $tab->new_row();
             	}
 	    }

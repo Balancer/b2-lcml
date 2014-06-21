@@ -17,6 +17,9 @@
 		"source": "https://github.com/Balancer/b2-lcml"
 	},
 
+	"prefer-stable": true,
+	"minimum-stability": "dev",
+
     "require": {
         "balancer/b2-core": "@dev",
         "balancer/bors-core": "@dev"

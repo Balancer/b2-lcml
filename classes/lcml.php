@@ -7,8 +7,11 @@ class lcml
 		return bors_lcml::lcml($bb_code);
 	}
 
-	static function __dev()
+	static function __unit_test($suite)
 	{
-		echo lcml::parse('[b]Test[/b]');
+		$suite->assertEquals('<strong>Test</strong>', lcml::parse('[b]Test[/b]'));
+
+		//TODO: надо подумать на тему экранирования.
+		$suite->assertEquals('После знака < сообщение прерывается', lcml::parse('После знака < сообщение прерывается'));
 	}
 }

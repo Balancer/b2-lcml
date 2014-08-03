@@ -2,7 +2,7 @@
 
 class lcml_tag_pair_csv extends bors_lcml_tag_pair
 {
-	function html($text, $params)
+	function html($text, &$params)
 	{
 		require_once('engines/lcml/bcsTable.php');
 		require_once('inc/csv.php');

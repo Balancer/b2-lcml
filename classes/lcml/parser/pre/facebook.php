@@ -4,7 +4,7 @@
 	Оформление вставок кода Facebook. Видео и т.п.
 */
 
-// Для проверки: 
+// Для проверки: http://www.balancer.ru/g/p3655919
 
 class lcml_parser_pre_facebook extends bors_lcml_parser
 {

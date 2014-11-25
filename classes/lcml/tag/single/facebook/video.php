@@ -7,7 +7,7 @@ class lcml_tag_single_facebook_video extends bors_lcml_tag_single
 
 $html = <<< __EOT__
 <div id="fb-root"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-post" data-href="https://www.facebook.com/video.php?v={$video_id}" data-width="640"><div class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/video.php?v={$video_id}">публикация</a></div></div>
+<div class="fb-post" data-href="https://www.facebook.com/video.php?v={$video_id}" data-width="640"><div class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/video.php?v={$video_id}">@Facebook</a></div></div>
 __EOT__;
 
 		return $html;

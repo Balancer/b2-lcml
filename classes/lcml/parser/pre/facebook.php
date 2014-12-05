@@ -24,6 +24,7 @@ class lcml_parser_pre_facebook extends bors_lcml_parser
 		$code = preg_replace('!<div id="fb-root">.+?data-href="https://www\.facebook\.com/video\.php\?v=(\d+).+?</div></div>!siu', '[facebook_video=$1]', $code);
 
 		$code = preg_replace('!^\s*https://www\.facebook\.com/video\.php\?v=(\d+)\s*$!m', '[facebook_video=$1]', $code);
+		$code = preg_replace('!^\s*https://www\.facebook\.com/video\.php\?v=(\d+)&\S*$!m', '[facebook_video=$1]', $code);
 
 		return $code;
 	}
@@ -38,5 +39,17 @@ __EOT__;
 		$suite->assertRegexp('!^\[facebook_video=806324122767529\]$!', trim(self::parse($bb_code)));
 
 		$suite->assertRegexp('!^\[facebook_video=806324122767529\]$!', trim(self::parse('https://www.facebook.com/video.php?v=806324122767529')));
+
+		$bb_code = "...
+https://www.facebook.com/video.php?v=768973713156693
+...";
+
+		$suite->assertRegexp('!^\[facebook_video=768973713156693\]$!', trim(self::parse($bb_code)));
+
+		$bb_code = "...
+https://www.facebook.com/video.php?v=721535437924757&set=vb.125210247557282&type=2&theater
+...";
+
+		$suite->assertRegexp('!^\[facebook_video=721535437924757\]$!', trim(self::parse($bb_code)));
 	}
 }

@@ -44,12 +44,12 @@ __EOT__;
 https://www.facebook.com/video.php?v=768973713156693
 ...";
 
-		$suite->assertRegexp('!^\[facebook_video=768973713156693\]$!', trim(self::parse($bb_code)));
+		$suite->assertRegexp('!\[facebook_video=768973713156693\]!', trim(self::parse($bb_code)));
 
 		$bb_code = "...
 https://www.facebook.com/video.php?v=721535437924757&set=vb.125210247557282&type=2&theater
 ...";
 
-		$suite->assertRegexp('!^\[facebook_video=721535437924757\]$!', trim(self::parse($bb_code)));
+		$suite->assertRegexp('!\[facebook_video=721535437924757\]!', trim(self::parse($bb_code)));
 	}
 }

@@ -16,8 +16,7 @@ class lcml_tag_pair_csv extends bors_lcml_tag_pair
 
 		$tab = new bcsTable($bcs_args);
 
-		if(!empty($params['width']))
-			$tab->table_width($params['width']);
+		$tab->table_width(defval_ne($params, 'width', 'auto'));
 
 		$delim = defval($params, 'delim', ';');
 

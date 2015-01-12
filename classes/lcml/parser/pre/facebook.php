@@ -23,6 +23,9 @@ class lcml_parser_pre_facebook extends bors_lcml_parser
 
 		$code = preg_replace('!<div id="fb-root">.+?data-href="https://www\.facebook\.com/video\.php\?v=(\d+).+?</div></div>!siu', '[facebook_video=$1]', $code);
 
+// Если зевнули кусок кода, как на http://www.balancer.ru/g/p3639710
+		$code = preg_replace('!<div id="fb-root">.+?data-href="https://www\.facebook\.com/video\.php\?v=(\d+).+$!sium', '[facebook_video=$1]', $code);
+
 		$code = preg_replace('!^\s*https://www\.facebook\.com/video\.php\?v=(\d+)\s*$!m', '[facebook_video=$1]', $code);
 		$code = preg_replace('!^\s*https://www\.facebook\.com/video\.php\?v=(\d+)&\S*$!m', '[facebook_video=$1]', $code);
 

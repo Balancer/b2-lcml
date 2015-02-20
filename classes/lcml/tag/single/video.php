@@ -1,6 +1,6 @@
 <?php
 
-class lcml_tag_pair_video extends bors_lcml_tag_pair
+class lcml_tag_single_video extends bors_lcml_tag_single
 {
 	function html($text, &$params)
 	{

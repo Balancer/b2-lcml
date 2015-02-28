@@ -14,10 +14,17 @@ class lcml_tag_pair_chem extends bors_lcml_tag_pair
 
 	function html($text, &$params)
 	{
+//		$container = defval($params, 'container');
+		$message = defval($params, 'self');
+		if($message)
+			$lcml_time = $message->modify_time();
+		else
+			$lcml_time = time();
+
 		$size = defval($params, 'size', 100);
 		$text = trim($text);
 		$hash = md5('s='.$size.'t='.$text);
-		$src_file = $this->root_src_dir.'/'.date('Y-m').'/'.$hash.'.json';
+		$src_file = $this->root_src_dir.'/'.date('Y-m', $lcml_time).'/'.$hash.'.json';
 
 		mkpath(dirname($src_file));
 
@@ -31,7 +38,7 @@ class lcml_tag_pair_chem extends bors_lcml_tag_pair
 
 //		r($text);
 
-		$cache_file = $this->root_cache_dir.'/'.date('Y-m').'/'.$hash.'.png';
+		$cache_file = $this->root_cache_dir.'/'.date('Y-m', $lcml_time).'/'.$hash.'.png';
 		mkpath(dirname($cache_file));
 		$this->generator->set_attr('save_to', $cache_file);
 		$this->generator->set_attr('size', $size);
@@ -43,6 +50,6 @@ class lcml_tag_pair_chem extends bors_lcml_tag_pair
 			return $e->getMessage();
 		}
 
-		return "<img src=\"".$this->root_url.'/'.date('Y-m').'/'.$hash.'.png'."\" />";
+		return "<img src=\"".$this->root_url.'/'.date('Y-m', $lcml_time).'/'.$hash.'.png'."\" />";
 	}
 }
